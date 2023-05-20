@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Closest Prime Number Finder</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</head>
+<body>
+    <h1>Closest Prime Number Finder</h1>
+    <div class="github-profile">
+        <a class="github-link" href="https://github.com/mapi100" target="_blank">
+            <img src="https://www.pngmart.com/files/22/GitHub-PNG-Isolated-Transparent-Image.png" alt="GitHub Logo">
+            GitHub
+        </a>
+    </div>
+    <form id="prime-form" method="POST" action="/">
+        {{ form.csrf_token }}
+	<p id="number-display"></p>
+        <div class="gif-container">
+            <iframe src="https://tenor.com/embed/21657143" width="480" height="480" frameborder="0" class="giphy-embed" allowfullscreen></iframe>
+        </div>
+        <br><br>
+        <label for="number">Enter a number:</label>
+        <br>
+        <input type="text" id="number" name="number" size="10" required>
+        {% for error in form.number.errors %}
+            <span class="error">{{ error }}</span>
+        {% endfor %}
+        <br><br>
+        <input type="submit" value="Find Closest Prime">
+    </form>
+    <div id="result-container" class="result">
+        <h2 class="result-heading">Result:</h2>
+        <p class="result-message"></p>
+    </div>
+</body>
+</html>
