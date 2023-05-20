@@ -1,37 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Closest Prime Number Finder</title>
+    <title>Finding the Closest Prime Number</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </head>
 <body>
-    <h1>Closest Prime Number Finder</h1>
+    <h1>Finding the Closest Prime Number</h1>
     <div class="github-profile">
         <a class="github-link" href="https://github.com/mapi100" target="_blank">
-            <img src="https://www.pngmart.com/files/22/GitHub-PNG-Isolated-Transparent-Image.png" alt="GitHub Logo">
-            GitHub
+            <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub Logo" class="github-logo">
+            <span class="github-text">GitHub</span>
         </a>
     </div>
-    <form id="prime-form" method="POST" action="/">
+    <div class="cat-image">
+        <img src="https://www.pngitem.com/pimgs/m/273-2736935_maths-cat-hd-png-download.png" alt="Mathematical Cat">
+    </div>
+    <form method="POST" action="/">
         {{ form.csrf_token }}
-	<p id="number-display"></p>
-        <div class="gif-container">
-            <iframe src="https://tenor.com/embed/21657143" width="480" height="480" frameborder="0" class="giphy-embed" allowfullscreen></iframe>
-        </div>
-        <br><br>
-        <label for="number">Enter a number:</label>
-        <br>
-        <input type="text" id="number" name="number" size="10" required>
+        <label for="number">Enter an integer:</label>
+        {{ form.number }}
         {% for error in form.number.errors %}
             <span class="error">{{ error }}</span>
         {% endfor %}
-        <br><br>
-        <input type="submit" value="Find Closest Prime">
+        <br>
+	<br>
+        {{ form.submit }}
     </form>
-    <div id="result-container" class="result">
-        <h2 class="result-heading">Result:</h2>
-        <p class="result-message"></p>
+    <div class="result">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <h2 class="result-heading">Result:</h2>
+                <p class="result-message">{{ messages[0] }}</p>
+            {% endif %}
+        {% endwith %}
     </div>
 </body>
 </html>

@@ -7,28 +7,16 @@ body {
 h1 {
     color: #FF4081;
     margin-top: 50px;
+    font-size; 46px;
 }
 
-.github-profile {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
+.cat-image img {
+    max-width: 400px;
 }
 
-.github-link {
-    text-decoration: none;
-    color: #000;
-}
-
-.github-link img {
+.github-logo {
     width: 20px;
     height: 20px;
-    margin-right: 5px;
-}
-
-.github-link:hover {
-    text-decoration: underline;
 }
 
 form {
@@ -55,7 +43,7 @@ input[type="text"] {
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 8px;
     box-sizing: border-box;
 }
 
@@ -64,9 +52,37 @@ input[type="text"] {
 }
 
 .result {
-    margin-top: 20px;
+    margin-top: 40px;
     padding: 10px;
     background-color: #FF4081;
     color: #fff;
     border-radius: 4px;
 }
+
+.result-heading {
+    font-size: 2.0em;
+}
+
+.result-message {
+    font-size: 1.5em;
+}
+
+.github-link {
+    text-decoration: none;
+    color: #FF4081;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.github-logo {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.github-text {
+    font-weight: bold;
+    font-size: 16px;
+}
+

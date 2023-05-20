@@ -4,7 +4,7 @@ from wtforms import IntegerField, SubmitField
 from wtforms.validators import InputRequired
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'
+app.secret_key = 'avueno'
 
 
 class NumberForm(FlaskForm):
@@ -15,11 +15,7 @@ class NumberForm(FlaskForm):
 def is_prime(n):
     if n < 2:
         return False
-    if n == 2:
-        return True
-    if n % 2 == 0:
-        return False
-    for i in range(3, int(n ** 0.5) + 1, 2):
+    for i in range(2, int(n ** 0.5) + 1):
         if n % i == 0:
             return False
     return True
@@ -29,20 +25,16 @@ def find_closest_prime(n):
     if is_prime(n):
         return n
 
-    if n % 2 == 0:
-        lower = n - 1
-        upper = n + 1
-    else:
-        lower = n - 2
-        upper = n + 2
+    lower = n - 1
+    upper = n + 1
 
     while True:
         if is_prime(lower):
             return lower
         elif is_prime(upper):
             return upper
-        lower -= 2
-        upper += 2
+        lower -= 1
+        upper += 1
 
 
 @app.route('/', methods=['GET', 'POST'])
