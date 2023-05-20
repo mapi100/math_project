@@ -1,6 +1,3 @@
-# math_project
--A website made with html with css, javascript, and python3 about prime numbers.
-
 #Possible ideas
 -What is a prime number
 -Brief history of prime numbers
